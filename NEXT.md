@@ -11,11 +11,8 @@
 > git fetch -q origin && git rev-list --left-right --count origin/main...main   # left = behind, right = unpushed
 > git status -sb
 > ```
->
-> The `rev-list` line errors until the first push, because `origin/main` does not exist
-> yet.
 
-Updated 2026-11-20 00:45 UTC. Working state for vibe-kit, a fork of project-kit
+Updated 2026-11-20 00:48 UTC. Working state for vibe-kit, a fork of project-kit
 (github.com/fbonds/project-kit) aimed at being the best practice for solo vibe coding with
 Claude Code. **Read `docs/handoff-2026-11-19.md` next.** It holds everything from the
 session that started this repository: the owner's goal and its definition in their words,
@@ -86,10 +83,10 @@ commits to GitHub's noreply address.
 
 ## In flight
 
-Nothing is committed. The owner created the public GitHub repository `fbonds/vibe-kit` on
-2026-11-19, read back as public and empty. On 2026-11-20 at 00:45 UTC `git ls-remote`
-returned no branches or tags. The remote `origin` points at it. On disk, untracked, and
-going into the first commit:
+Nothing. The first commit, `daacda6`, was pushed by the owner on 2026-11-20. At 00:48 UTC
+`git ls-remote` showed GitHub `main` at `daacda6`, `gh repo view` showed the repository as
+public, and the GitHub API listed `docs/` without `sources-2026-11-18/`. The first commit
+holds:
 
 - `.gitignore`: excludes `.DS_Store` and `docs/sources-2026-11-18/`.
 - `template/`: project-kit's four template files at `23edcce`, copied unchanged.
@@ -113,24 +110,21 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. The first commit, by path.
-2. The owner pushes.
-3. Path step 5, the first in the order under Decided: change what the owner approves to the
+1. Path step 5, the first in the order under Decided: change what the owner approves to the
    proposal and the observed behaviour.
-4. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+2. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-20 00:45 UTC. Re-check with the block at the top of this file.
+As of 2026-11-20 00:48 UTC. Re-check with the block at the top of this file.
 
-**Uncommitted.** Everything. There are no commits. The 11 files listed under In flight go
-into the first commit.
+**Uncommitted.** Nothing, apart from this update.
 
-**Unpushed.** Nothing committed, so nothing to push. `origin` is empty, as read on
-2026-11-19.
+**Unpushed.** Nothing. GitHub `main` was `daacda6`, 0 behind and 0 ahead, at 00:48 UTC.
+This snapshot goes stale with the next commit. The `rev-list` line at the top answers it.
 
 **Unreleased.** Nothing released.
 
