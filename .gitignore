@@ -1,0 +1,6 @@
+# macOS Finder metadata, in any folder.
+.DS_Store
+
+# Copies of other sites' pages. Most have no license to republish.
+# The list of URLs is in docs/README.md.
+/docs/sources-2026-11-18/
