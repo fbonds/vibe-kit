@@ -12,7 +12,7 @@
 > git status -sb
 > ```
 
-Updated 2026-11-20 23:59 UTC. Working state for vibe-kit, a fork of project-kit
+Updated 2026-11-21 19:30 UTC. Working state for vibe-kit, a fork of project-kit
 (github.com/fbonds/project-kit) aimed at being the best practice for solo vibe coding with
 Claude Code. **Read `docs/handoff-2026-11-19.md` next.** It holds everything from the
 session that started this repository: the owner's goal and its definition in their words,
@@ -122,9 +122,10 @@ does unseen; the test for each project-kit file; open questions.
 
 The evidence for the pitfalls is in `docs/pitfalls-research-2026-11-20.md`, uncommitted.
 
-**A `.gitignore` change, proposed and not approved:** replace `/docs/sources-2026-11-18/`
-with `/docs/sources-*/`. Until then `docs/sources-2026-11-20/`, 22 MB of mostly copyrighted
-pages, shows as untracked and is not ignored. Do not stage it.
+**`.gitignore` now excludes every `docs/sources-*/` folder** (2026-11-21, owner's approval),
+in place of `/docs/sources-2026-11-18/` alone. On 2026-11-21 `git check-ignore` matched
+files in both source folders, and `docs/pitfalls-research-2026-11-20.md` was not ignored.
+`docs/sources-2026-11-20/` holds 89 files, 22 MB, on the owner's disk only.
 
 The first commit, `daacda6`, was pushed by the owner on 2026-11-20. At 00:48 UTC
 `git ls-remote` showed GitHub `main` at `daacda6`, `gh repo view` showed the repository as
@@ -153,8 +154,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. The `.gitignore` change under In flight, then the brief: the owner approves its outline,
-   then the draft. Path step 5 is part of the brief.
+1. The brief: the owner approves its outline, then the draft. Path step 5 is part of the
+   brief.
 2. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
@@ -164,11 +165,10 @@ owner's approval.
 
 As of 2026-11-20 23:59 UTC. Re-check with the block at the top of this file.
 
-**Uncommitted.** This update to `NEXT.md`, `docs/README.md` and the new
-`docs/pitfalls-research-2026-11-20.md`. `docs/sources-2026-11-20/` is untracked and stays
-out of every commit.
+**Uncommitted.** Nothing, apart from this update and `.gitignore`.
 
-**Unpushed.** Nothing. GitHub `main` was `c7121f2`, 0 behind and 0 ahead, at 23:59 UTC.
+**Unpushed.** Nothing. GitHub `main` was `08de14d`, 0 behind and 0 ahead, on 2026-11-21 at
+19:28 UTC.
 This snapshot goes stale with the next commit. The `rev-list` line at the top answers it.
 
 **Unreleased.** Nothing released.

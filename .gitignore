@@ -2,5 +2,5 @@
 .DS_Store
 
 # Copies of other sites' pages. Most have no license to republish.
-# The list of URLs is in docs/README.md.
-/docs/sources-2026-11-18/
+# The URLs are in docs/README.md and docs/pitfalls-research-2026-11-20.md.
+/docs/sources-*/
