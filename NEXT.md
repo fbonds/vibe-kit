@@ -12,7 +12,7 @@
 > git status -sb
 > ```
 
-Updated 2026-11-20 00:48 UTC. Working state for vibe-kit, a fork of project-kit
+Updated 2026-11-20 23:59 UTC. Working state for vibe-kit, a fork of project-kit
 (github.com/fbonds/project-kit) aimed at being the best practice for solo vibe coding with
 Claude Code. **Read `docs/handoff-2026-11-19.md` next.** It holds everything from the
 session that started this repository: the owner's goal and its definition in their words,
@@ -43,6 +43,10 @@ them here when this file's structure is settled.
   `code.claude.com/docs/en/*.md` link in each saved Anthropic page gave the wrong URL for
   all four, on 2026-11-19. Each page's first heading identified it, and fetching the live
   URL confirmed it.
+- **A settled decision was offered again as an option.** On 2026-11-20 the session asked
+  whether changes to text should still be shown as a diff, after Decided had recorded "the
+  diff available and not required". The owner caught it. Before offering options, read
+  Decided for the point being asked.
 
 ## Decided, do not redo
 
@@ -70,7 +74,8 @@ that must always hold moved into deny rules and tested hooks; 4, examples and Tr
 questions rewritten for the reader. Reason: 5 and 6 are small and need no measurement, and
 the harness designed in project-kit-harness tests keeping state, not building. Path work
 starts after the first commit and push, so that `git diff` shows what vibe-kit changed in
-project-kit's files.
+project-kit's files. Its start was replaced on 2026-11-20 by the session design brief,
+below.
 
 **`docs/sources-2026-11-18/` stays out of the public repository, and the rest of `docs/` is
 published** (2026-11-19, owner's decision on the session's recommendation). A search of the
@@ -81,9 +86,47 @@ absolute home paths shortened to `~/code/project-kit`. The owner's name and emai
 already public in project-kit's commit history, and the owner did not ask to switch
 commits to GitHub's noreply address.
 
+**A session design brief comes before any edit to `template/`, and path step 5 is folded
+into it** (2026-11-20, owner's decision on the session's recommendation). This replaces
+the start of the path order above, which put step 5 first as an edit to rule 10. The owner
+asked "Are we still on track with the creative person who doesn't have coding skills to
+effectively build code projects?" and said "What we are not trying to do is recreate
+project-kit." The session found it was about to patch project-kit's wording in place, and
+that project-kit's report shape and examples use release-engineering terms this reader
+does not use. The brief describes a session from the reader's side and is the test for
+keeping, rewriting or dropping each project-kit file. The rest of the path order stands
+until the brief says otherwise.
+
 ## In flight
 
-Nothing. The first commit, `daacda6`, was pushed by the owner on 2026-11-20. At 00:48 UTC
+**The session design brief**, `docs/session-design-2026-11-20.md`, not written yet. The
+owner's answers on 2026-11-20, verbatim:
+
+- What the reader builds: "it shouldn't be so limited. It should give them the facility to
+  build all those things or other things. It's about optimizing you for their use whatever
+  their project may be. We're endeavoring to give them the tools to build amazing things
+  and saving them from myriad pitfalls that using raw agentic AI might produce."
+- Where the reader runs Claude Code: the terminal CLI.
+- Git: hidden. Claude handles it, and the reader is told in plain words what is saved, what
+  is backed up online, and what is live.
+- Who the brief is for: a design brief, for us, in `docs/`.
+
+Proposed outline, **not approved**, because the owner's reply turned to the pitfalls: what
+the brief is for; the reader, with these answers; the pitfalls of raw agentic AI, each with
+what the reader sees, its evidence and what vibe-kit does about it; a session from the
+reader's side, from returning to a project, through an idea becoming a plan in plain words
+(the first approval) and the build, to seeing it work (the second approval) and saving, in
+plain words with no git terms; what the reader never needs to see, such as diffs, git
+commands, file paths and the check-report terms, each available on request; what Claude
+does unseen; the test for each project-kit file; open questions.
+
+The evidence for the pitfalls is in `docs/pitfalls-research-2026-11-20.md`, uncommitted.
+
+**A `.gitignore` change, proposed and not approved:** replace `/docs/sources-2026-11-18/`
+with `/docs/sources-*/`. Until then `docs/sources-2026-11-20/`, 22 MB of mostly copyrighted
+pages, shows as untracked and is not ignored. Do not stage it.
+
+The first commit, `daacda6`, was pushed by the owner on 2026-11-20. At 00:48 UTC
 `git ls-remote` showed GitHub `main` at `daacda6`, `gh repo view` showed the repository as
 public, and the GitHub API listed `docs/` without `sources-2026-11-18/`. The first commit
 holds:
@@ -110,8 +153,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Path step 5, the first in the order under Decided: change what the owner approves to the
-   proposal and the observed behaviour.
+1. The `.gitignore` change under In flight, then the brief: the owner approves its outline,
+   then the draft. Path step 5 is part of the brief.
 2. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
@@ -119,11 +162,13 @@ owner's approval.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-20 00:48 UTC. Re-check with the block at the top of this file.
+As of 2026-11-20 23:59 UTC. Re-check with the block at the top of this file.
 
-**Uncommitted.** Nothing, apart from this update.
+**Uncommitted.** This update to `NEXT.md`, `docs/README.md` and the new
+`docs/pitfalls-research-2026-11-20.md`. `docs/sources-2026-11-20/` is untracked and stays
+out of every commit.
 
-**Unpushed.** Nothing. GitHub `main` was `daacda6`, 0 behind and 0 ahead, at 00:48 UTC.
+**Unpushed.** Nothing. GitHub `main` was `c7121f2`, 0 behind and 0 ahead, at 23:59 UTC.
 This snapshot goes stale with the next commit. The `rev-list` line at the top answers it.
 
 **Unreleased.** Nothing released.
