@@ -247,3 +247,145 @@ scoped credentials: "If a credential can spend money, set a tight budget limit."
 it names the sandbox and the budget as the answer to damage and cost. Does not fit: it
 assumes someone who can set up containers. vibe-kit takes: the sandbox, scoped keys with
 spending limits, and a clear goal with a way to test it.
+
+## A session, from the reader's side
+
+### Coming back to a project
+
+The reader opens the terminal in the project's folder, starts Claude Code, and says what
+they want, or nothing. They do not have to remember a phrase. Claude reads the project's
+state first and opens with it in plain words: what works, what is in progress, what is
+next, and what is saved, backed up online and live. If any of that could have changed
+since it was written, Claude checks before saying it. A SessionStart hook could load the
+state without being asked. Untested.
+
+### An idea becomes a plan: the first approval
+
+The reader describes what they want in their own words. Claude asks questions one at a
+time until it can write the plan, and sizes the planning to the change: a one-line fix gets
+a short plan, a new feature gets more. The plan is written for the reader, in plain words:
+
+- what they will be able to see or do when it is done, as a list they can check against;
+- what will not change, including everything that already works;
+- the technology Claude proposes, and why, in a sentence each;
+- anything that costs money, touches real data, can be seen by others, or cannot be undone;
+- the steps, each small enough to be seen working on its own.
+
+Claude works in plan mode until the reader approves, so nothing is built before the plan is
+agreed. The reader can ask for the plan to change, or for the reasoning behind any part.
+
+### The build
+
+Claude builds one step at a time. Between steps the reader sees a line or two on what was
+done, not a stream of code. Claude stops to ask only for a decision the plan did not settle,
+anything that costs money, touches real data or cannot be undone, and anything that turns
+out different from the plan. When something goes wrong, Claude says so in plain words and
+says what it will try next.
+
+### Seeing it work: the second approval
+
+When a step or the whole plan is done, Claude shows it working: it runs it, opens it, or
+shows the output, and walks through the list from the plan, item by item. It says what it
+checked, how it knows each check could fail, and what it could not check. Then the reader
+tries it. The work counts as done when the reader says so. Code and diffs are available if
+the reader asks, and never required.
+
+### Saving
+
+Claude handles git. After the reader approves, Claude tells them in plain words where the
+work stands: saved on this computer, backed up online, or live where others can use it.
+Each of the three is a separate question with its own answer. Backing up online and going
+live each need the reader's yes.
+
+## What the reader never needs to see
+
+The reader can ask to see any of these. vibe-kit never depends on them reading it.
+
+- **Code and diffs.** The reader judges the plan before and the working result after.
+- **Git.** No commands, branches, commits or hashes. The reader hears "saved", "backed up
+  online" and "live".
+- **File paths and folder layouts.** Where the reader has to open or find something, Claude
+  names it and says what it is.
+- **Terminal errors and stack traces.** Claude says in plain words what failed and what it
+  will do next.
+- **The language of checking.** The reader hears what was checked, how Claude knows the
+  check could fail, and what was not checked, without terms such as "artifact" or
+  "resolved path".
+- **Configuration.** Settings files, hooks, deny rules and the sandbox are set up by
+  vibe-kit. The reader is told once, in plain words, what each one protects against.
+
+Hiding these never hides a risk. Anything that costs money, touches real data, can be seen
+by others or cannot be undone is shown in plain words before it happens, as section 5 says.
+
+## What Claude does unseen
+
+The work behind sections 3 to 6. The reader sees its results in plain words, and can ask
+about any of it. Each item is instructed unless section 3 says otherwise.
+
+- **Saving.** After each approved step Claude saves the work to history, so any step can be
+  undone. It backs up online and makes anything live only on the reader's yes.
+- **The project's state**, in a file Claude keeps current without being asked: what works,
+  what is left and what is known to be wrong; each decision and its reason, with replaced
+  decisions kept and marked; and each fact that can go out of date, with the date it was
+  last checked. Claude reads it at the start of every session and checks anything that
+  could have changed. The file stays short enough to be read whole. What the saved history
+  already records is left out.
+- **How the project works**, described in plain words and updated with each change, so the
+  reader and any later session can follow it.
+- **Checking.** Before a step counts as done, Claude runs its checks, shows that each one
+  can fail by breaking something on purpose, and checks again everything that worked
+  before.
+- **Guarding.** Before adding a package, Claude confirms it exists and is established. It
+  reads code before explaining it. It keeps passwords and keys out of the code and the
+  history.
+- **Lessons.** When something costs time once, Claude writes down how to recognise it, so
+  it does not cost time again.
+
+## The test for any file or rule in vibe-kit
+
+A file or rule belongs in vibe-kit only if it can answer each of these. A "no" means it is
+changed or dropped, or the brief changes first, with the owner's approval.
+
+1. **What does it serve?** It names a pitfall in section 3, a part of the session in
+   section 5, or a piece of work in section 7. If it serves none of them, it goes.
+2. **What does it cost the reader?** If the reader has to read, learn, install or remember
+   anything for it to work, that cost is named and judged worth paying.
+3. **Must it hold every time?** If so, it is enforced by a setting, a hook or the
+   classifier, or the reason it is only written down is recorded.
+4. **Has it been shown to work?** It has been seen working, and a check on it has been seen
+   failing when it should. Until then it is marked untested.
+5. **Does it speak the reader's language?** Anything the reader sees uses their words, not
+   the terms of git, release engineering or code review.
+6. **Does Claude Code already do it?** If the platform has a feature for it, vibe-kit uses
+   the feature, not its own version.
+7. **Is it the only copy?** The same rule in two places drifts apart. One place holds it,
+   and others point there.
+8. **Does it work for any project?** It does not assume a website, a game or any one kind
+   of software, since the reader may build any of them.
+
+## Open questions
+
+Each is for the owner to decide, or for evidence to settle. None blocks writing vibe-kit's
+first files, but each is settled before the part it affects is called done.
+
+1. **How each method handles the pitfalls.** Section 4 was written from pages read for
+   keeping state and checking work. A second, narrower research pass would ask which
+   pitfalls each method addresses, and how.
+2. **How vibe-kit arrives in the reader's project.** Section 6 says vibe-kit sets up
+   settings and hooks for the reader, and section 2 says installs are a cost vibe-kit pays.
+   How the files get there without the reader learning how is not decided.
+3. **Which instructed items become enforced.** Section 3 names candidates: a Stop hook that
+   runs the checks, a SessionStart hook that loads the state, a hook that scans for keys.
+   Each needs a test that shows it working and failing.
+4. **The size of the state file.** Section 7 says it stays short enough to be read whole.
+   The number, and what moves out when it is reached, are not set. Claude Code loads only
+   the first 200 lines or 25 KB of its own memory file, which is one reference point.
+5. **How vibe-kit shows it is better.** The owner's definition of best is "Compared both to
+   plain and to other published methods". That needs measured results, with vibe-kit
+   against plain Claude Code at least. Section 3's last stretch adds that how fast the work
+   felt is no evidence.
+6. **Default settings.** Whether vibe-kit turns the sandbox on, and which permission mode it
+   starts in. The sandbox covers macOS, Linux and WSL2.
+7. **Going live.** Section 5 asks for the reader's yes before anything goes live. How
+   Claude takes any kind of project live, and what it checks first, is not described.
+8. **A license.** vibe-kit has none yet. project-kit uses MIT-0.

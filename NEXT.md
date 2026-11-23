@@ -108,65 +108,18 @@ those the evaluation read. Its practices that fit this reader can be taken over,
 nothing stays because it is in `template/`. What happens to `template/` is a later,
 separate item.
 
+**The brief's decisions stand as written in it** (2026-11-23, owner's approval, section by
+section). Three change past practice. For vibe-kit's reader, Claude backs up online after
+the reader says yes, which reverses project-kit's rule that only the owner pushes. The
+reader does not have to remember an opening phrase. vibe-kit is tied to Claude Code: where
+the platform has a feature, vibe-kit uses it. This repository's own rule stays: never
+push, the owner pushes.
+
 ## In flight
 
-**The session design brief**, `docs/session-design-2026-11-20.md`, written section by
-section at the owner's choice: each section is drafted, approved, then written. As of
-2026-11-23, sections 1 to 4 are approved and written. Next is section 5, a session from the
-reader's side. The owner decided on 2026-11-23 that project-kit appears in section 4 as a
-method judged like the others, and that section 4 is written from the 2026-11-18 pages, with
-a second research pass on how each method handles the pitfalls left open for section 9.
-Section 3 gained a line on auto mode's classifier in three groups, approved the same day.
-- In section 3, "Enforced" names the kind of mechanism. No vibe-kit settings or hooks exist
-  yet: the only ones are project-kit's, in `template/.claude/settings.json`.
-
-The owner's answers on 2026-11-20, verbatim:
-
-- What the reader builds: "it shouldn't be so limited. It should give them the facility to
-  build all those things or other things. It's about optimizing you for their use whatever
-  their project may be. We're endeavoring to give them the tools to build amazing things
-  and saving them from myriad pitfalls that using raw agentic AI might produce."
-- Where the reader runs Claude Code: the terminal CLI.
-- Git: hidden. Claude handles it, and the reader is told in plain words what is saved, what
-  is backed up online, and what is live.
-- Who the brief is for: a design brief, for us, in `docs/`.
-
-The outline, approved by the owner on 2026-11-21, in its wording, with its lists run inline:
-
-1. **What the brief is for.** It defines what vibe-kit must do for this reader. Every file
-   and rule in vibe-kit is judged against it.
-2. **The reader.** The definition from the handoff, plus the owner's four answers from
-   2026-11-20, quoted exactly: any kind of project; the terminal CLI; git hidden, told in
-   plain words; this is a design brief, for us.
-3. **The pitfalls of raw agentic AI.** Grouped as in `docs/pitfalls-research-2026-11-20.md`:
-   says it's done when it isn't; breaks what already worked; invents things; agrees too
-   readily; insecure by default; damage it can't undo; runs up costs; the last stretch;
-   prompt injection. For each group: what the reader sees, the evidence, and what vibe-kit
-   does about it, with the method or Claude Code feature the answer comes from.
-4. **What existing methods offer this reader.** The platform: Claude Code's own features,
-   plan mode, hooks, deny rules, checkpoints, sandboxing, memory, each with which pitfall it
-   addresses and whether it is enforced by the tool or only advised. The methods: one entry
-   each for Cline Memory Bank, Spec Kit, Kiro, AGENTS.md, BMAD, Agent OS, Harper Reed and
-   Willison, each with what it does well for this reader, what doesn't fit (installs, a
-   separate IDE, jargon), and what vibe-kit takes from it, or why nothing. Plain Claude
-   Code as the baseline, meaning no instruction files at all.
-5. **A session, from the reader's side:** coming back to a project, what they type and what
-   they're told; an idea becomes a plan in plain words (first approval); the build, what
-   they see and when they're asked anything; seeing it work (second approval); saving,
-   what's saved, what's backed up online and what's live, with no git terms.
-6. **What the reader never needs to see.** Diffs, git commands, file paths and check-report
-   jargon. Each can still be shown on request.
-7. **What Claude does unseen.** Git, checks, the state file and traps.
-8. **The test for any file or rule in vibe-kit.** The questions a file or rule must answer
-   to belong.
-9. **Open questions.** For example, whether section 4 needs a second research pass on how
-   each method handles the pitfalls.
-
-Keep the brief readable in one sitting. The evidence stays in the research file, linked
-from the brief and not copied into it.
-
-The evidence for the pitfalls is in `docs/pitfalls-research-2026-11-20.md`, committed in
-`08de14d`.
+**The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
+approved section by section by the owner on 2026-11-21 and 2026-11-23. It holds the reader,
+the owner's answers and the decisions under Decided, so they are not repeated here.
 
 **`.gitignore` now excludes every `docs/sources-*/` folder** (2026-11-21, owner's approval),
 in place of `/docs/sources-2026-11-18/` alone. On 2026-11-21 `git check-ignore` matched
@@ -200,9 +153,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. The brief: the owner approves its outline, then the draft. Path step 5 is part of the
-   brief.
-2. Decide what happens to `template/`, judged against the brief.
+1. Decide what happens to `template/`, judged against the brief.
+2. The brief's open questions, in its section 9, in the order the owner chooses.
 3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
@@ -222,5 +174,5 @@ This snapshot goes stale with the next commit. The `rev-list` line at the top an
 
 ## Open, not blocking
 
-- A license. project-kit is MIT-0. vibe-kit has none yet.
+- A license. It is item 8 in the brief's section 9, which holds the question.
 - Whether vibe-kit keeps project-kit's layout of a README, `template/` and `docs/`.
