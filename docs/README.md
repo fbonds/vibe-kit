@@ -42,6 +42,10 @@ pages may have changed since they were saved.
 **`evaluation-corrections-2026-11-19.md`** lists five errors found in the evaluation on
 2026-11-19 by checking it against the saved source pages. Read it with the evaluation.
 
+**`session-design-2026-11-20.md`** is the design brief: what vibe-kit must do for its
+reader, and the test every file and rule in vibe-kit is judged against. It is being written
+section by section, and its status is in `NEXT.md` under In flight.
+
 **`pitfalls-research-2026-11-20.md`** is the evidence for the pitfalls of raw agentic AI
 coding, gathered 2026-11-20 for the session design brief: 21 pitfalls and two more, each
 with a verdict and its sources. Its pages are in `sources-2026-11-20/`, on the owner's disk

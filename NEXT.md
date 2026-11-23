@@ -12,7 +12,7 @@
 > git status -sb
 > ```
 
-Updated 2026-11-21 19:30 UTC. Working state for vibe-kit, a fork of project-kit
+Updated 2026-11-23 03:51 UTC. Working state for vibe-kit, a fork of project-kit
 (github.com/fbonds/project-kit) aimed at being the best practice for solo vibe coding with
 Claude Code. **Read `docs/handoff-2026-11-19.md` next.** It holds everything from the
 session that started this repository: the owner's goal and its definition in their words,
@@ -110,8 +110,22 @@ separate item.
 
 ## In flight
 
-**The session design brief**, `docs/session-design-2026-11-20.md`, not written yet. The
-owner's answers on 2026-11-20, verbatim:
+**The session design brief**, `docs/session-design-2026-11-20.md`, written section by
+section at the owner's choice: each section is drafted, approved, then written. As of
+2026-11-21:
+
+- Sections 1 and 2 are approved and written.
+- Section 3, the pitfalls, is drafted in the file under a comment marking it not approved.
+  The owner asked to save state before answering. Present it again for approval first.
+- Proposed with section 3 and not answered: change "for the owner to confirm" in section 2
+  to "confirmed by the owner on 2026-11-21", since the owner approved that section.
+- Open, to raise at section 4: should project-kit appear there as a ninth method, judged
+  like the others, or should its ideas enter only through the pitfalls they address? The
+  owner was asked on 2026-11-21 and did not answer.
+- In section 3, "Enforced" names the kind of mechanism. No vibe-kit settings or hooks exist
+  yet: the only ones are project-kit's, in `template/.claude/settings.json`.
+
+The owner's answers on 2026-11-20, verbatim:
 
 - What the reader builds: "it shouldn't be so limited. It should give them the facility to
   build all those things or other things. It's about optimizing you for their use whatever
@@ -203,10 +217,10 @@ owner's approval.
 
 As of 2026-11-20 23:59 UTC. Re-check with the block at the top of this file.
 
-**Uncommitted.** Nothing, apart from this update and `.gitignore`.
+**Uncommitted.** Nothing, apart from this update and `docs/session-design-2026-11-20.md`.
 
-**Unpushed.** Nothing. GitHub `main` was `08de14d`, 0 behind and 0 ahead, on 2026-11-21 at
-19:28 UTC.
+**Unpushed.** Nothing. GitHub `main` was `643e9f1`, 0 behind and 0 ahead, on 2026-11-23 at
+03:51 UTC.
 This snapshot goes stale with the next commit. The `rev-list` line at the top answers it.
 
 **Unreleased.** Nothing released.
