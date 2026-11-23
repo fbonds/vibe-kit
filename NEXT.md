@@ -1,6 +1,6 @@
 # Where we are
 
-**This is vibe-kit's own working state. It is not the template in `template/`.**
+**This is the working state for building vibe-kit. The kit itself is in `kit/`.**
 
 > **Read this before acting on anything below.** Every fact in this file is dated and may
 > be stale. It records what was true when it was checked, not what is true now. Re-check
@@ -21,10 +21,7 @@ what is uncommitted, and wait for the owner.
 
 ## Standards
 
-Not chosen yet. `template/` holds project-kit's files unchanged, and `template/NEXT.md` has
-its ten standards. Until the owner decides otherwise, work by the owner's global
-instructions and by the working rules in the handoff: one item at a time, proposal or diff
-before applying, stage by path, commit only when asked, never push.
+In `CLAUDE.md`, which holds the only copy.
 
 ## Traps
 
@@ -129,6 +126,14 @@ replacements exist, then is deleted. vibe-kit does not keep project-kit's layout
 files go in `kit/`, since this repository's root `CLAUDE.md` is the working file for
 building vibe-kit.
 
+**`kit/` replaces `template/`, and the root `CLAUDE.md` holds this repository's own
+rules** (2026-11-23, owner's approval). `kit/` has `CLAUDE.md`, `.claude/settings.json`
+and a `PROGRESS.md` starter, each approved by the owner. `HOWTOSAVESTATE.md` was dropped.
+The root `CLAUDE.md` took in the standards, the check-report shape, the save-state
+procedure and the Writing rules, so `template/` could be deleted. They stay separate from
+the kit's rules: this repository keeps diff approval and owner-only pushes, and the kit's
+reader has neither.
+
 ## In flight
 
 **The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
@@ -167,8 +172,10 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Write vibe-kit's own files in `kit/`, starting with its `CLAUDE.md`, each judged against
-   the brief's section 8. Then delete `template/`.
+1. Test `kit/` in a real Claude Code session: a scratch project with `kit/` copied in, run
+   by the owner. Check that the SessionStart hook fires at startup and after compaction,
+   that `git push` asks first, that a force push is denied, and how the opening reads.
+   Nothing in `kit/` counts as working until then.
 2. The brief's open questions, in its section 9, in the order the owner chooses.
 3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
