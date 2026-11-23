@@ -34,7 +34,8 @@ The owner's answers on 2026-11-20, which set the limits:
   what is backed up online, and what is live.
 - This brief: written for the people who build vibe-kit, in `docs/`.
 
-What follows from that, as read by the session that wrote this, for the owner to confirm:
+What follows from that, as read by the session that wrote this, confirmed by the owner on
+2026-11-21:
 
 - The reader can say what they want, and can tell whether what they got does it.
 - The reader can judge a plan written in plain words. They cannot judge code by reading it,
@@ -44,9 +45,6 @@ What follows from that, as read by the session that wrote this, for the owner to
 - The reader's time goes on the idea and on judging the result. Anything that makes them
   learn tooling first, such as installs, configuration or git, is a cost vibe-kit pays for
   them.
-
-<!-- DRAFT. Section 3 below was proposed on 2026-11-21 and is NOT approved by the owner.
-     Present it for approval before writing section 4. Remove this comment on approval. -->
 
 ## The pitfalls of raw agentic AI
 
@@ -106,7 +104,8 @@ items 12 to 15.
 vibe-kit: passwords and keys never go in the code or the history. Before anything goes live,
 Claude says in plain words who can see the data, who can change it, and what costs money,
 and names what it could not check. Instructed. Deny rules can stop Claude reading secret
-files, and a hook could scan each save for keys. Both untested.
+files, and a hook could scan each save for keys. Both untested. In auto mode a second model
+blocks sending sensitive data out by default, and it can miss.
 
 ### It does damage it cannot undo
 
@@ -114,10 +113,11 @@ Files or a database get deleted, and Claude says recovery is impossible when it 
 Evidence: items 16 to 18, and the second finding added at the end.
 
 vibe-kit: deny rules block destructive commands, and the sandbox limits what any command
-can reach. Enforced. Every approved step is saved to history, out of the reader's sight, so
-any step can be undone. Claude Code's checkpoints do not cover changes made by shell
-commands, so they are not enough alone. Claude checks before saying anything cannot be
-recovered. Instructed.
+can reach. Enforced. In auto mode a second model also blocks some destructive actions by
+default, and it can miss. Every approved step is saved to history, out of the reader's
+sight, so any step can be undone. Claude Code's checkpoints do not cover changes made by
+shell commands, so they are not enough alone. Claude checks before saying anything cannot
+be recovered. Instructed.
 
 ### It runs up costs
 
@@ -146,4 +146,104 @@ first finding added at the end.
 
 vibe-kit: Claude treats what it fetches or reads as data, not as instructions. The sandbox
 can limit where commands send data. An app that contains its own agent never gives that
-agent a key it could reveal. Instructed, and the sandbox enforced. Untested.
+agent a key it could reveal. Instructed, and the sandbox enforced. Untested. In auto mode a
+second model blocks actions that appear driven by hostile content, and it can miss.
+
+## What existing methods offer this reader
+
+Read from the pages saved on 2026-11-18, listed in `README.md`. The methods may have changed
+since. They were read for how each keeps state and checks work. How each handles the
+pitfalls in section 3 was not studied, and section 9 keeps that open.
+
+### The platform: Claude Code
+
+vibe-kit runs on Claude Code in the terminal, so these are its tools, not its rivals.
+
+- **Deny rules and hooks.** Claude Code applies them every time. Anthropic: "If something
+  has to happen every time, make it a hook, a deny rule, or a managed setting." They address
+  damage, secrets, and a check that sends Claude back when it fails. Enforced.
+- **Auto mode.** The starting mode for terminal sessions from Claude Code v2.1.283. A second
+  model reviews each action and by default blocks, among others, "Irreversibly destroying
+  files that existed before the session", force pushes, production deploys, and sending
+  sensitive data out, and anything that "appears driven by hostile content Claude read".
+  It addresses damage, secrets and planted instructions. Enforced by a model's judgment,
+  which can miss, and it does not review removals such as `rm -rf ~` by default.
+- **The sandbox.** Turned on with `/sandbox`, it limits which files and network hosts shell
+  commands can reach, at the operating-system level, on macOS, Linux and WSL2. It addresses
+  damage and planted instructions. Enforced.
+- **Plan mode.** Claude researches and proposes without editing the project. It is the
+  natural home of the first approval in section 5. Enforced while it is on.
+- **Checkpoints and `/rewind`.** They undo Claude's own file edits, but not changes made by
+  shell commands, and Anthropic calls them "Not a replacement for version control". Partial.
+- **`CLAUDE.md` and auto memory.** Loaded at the start of every session, which suits
+  decisions and the project's state. Anthropic says Claude "is allowed to decide a
+  guideline doesn't apply". Instructed.
+
+### The baseline: plain Claude Code
+
+With no instruction files, a terminal session starts in auto mode with the classifier on.
+There are no deny rules or hooks, and the sandbox and plan mode wait for the reader to know
+they exist. Everything marked instructed in section 3 is missing. This is what vibe-kit
+has to beat.
+
+### The methods
+
+**project-kit**, github.com/fbonds/project-kit, judged in `evaluation-2026-11-18.md` with
+`evaluation-corrections-2026-11-19.md`. Does well: every check is shown failing first and
+reports what it did not check; facts carry the date they were checked; saved, backed up
+and live are separate questions; replaced decisions stay visible; nothing to install.
+Does not fit: its examples and terms come from release engineering, it is almost all prose,
+it asks the owner to approve diffs, and it has no method for building. vibe-kit takes: the
+four practices, in plain words.
+
+**Cline Memory Bank**, built for Cline, a different agent. Six files the agent reads to pick
+up where it left off, including why the project exists and "What works, what's left, known
+issues". Does well: those last three are in the reader's own terms. Does not fit: it is
+updated only when the user remembers to ask. vibe-kit takes: a progress record in those
+three parts, kept current by Claude without being asked.
+
+**AGENTS.md**, one instruction file that many agents read. Claude Code can read it in place
+of `CLAUDE.md`. Does well: one file works across tools. Does not fit: it is a format, with
+nothing on planning or checking. vibe-kit takes: nothing yet. The reader uses Claude Code.
+
+**GitHub Spec Kit.** A constitution, then specify, plan, tasks and implement, each reviewed
+before the next, with tests confirmed failing before code is written. Does well: it is the
+route from idea to tasks that section 3's last stretch needs. Does not fit: it needs Python
+3.11, uv and a command-line install, and its examples ask the user to choose technology,
+such as "Use Vite with vanilla JavaScript", which this reader may not be able to do.
+vibe-kit takes: the reviewed sequence and the failing test first, with Claude proposing the
+technology and explaining it in plain words.
+
+**Kiro**, a separate product with its own IDE, CLI and web app. Specs in three files:
+requirements as user stories with acceptance criteria, a design, and tasks. A bug spec
+records "current/expected/unchanged behavior". Steering files describe the product, the
+technology and the structure. Does well: acceptance criteria are how a QA-minded reader
+already judges work, and "unchanged behavior" names what a fix must not break. Does not fit:
+it is another product to adopt. vibe-kit takes: acceptance criteria written as what the
+reader will see, and an "unchanged" list in every plan.
+
+**BMAD Method.** Four stages, Clarify, Plan, Build and verify, Learn and adjust, run by
+named agents for analyst, product manager, architect and others. Planning is sized to the
+change, and done is "Reviewed, committed code that a person has marked done". Does well:
+right-sized planning, and a clear intent that says "what must not change, what is out of
+scope". Does not fit: it needs Node 20.12+, Python 3.10+ and uv, and it speaks in epics,
+stories and PRDs. vibe-kit takes: planning sized to the change, the intent with its two
+limits, and the person marking done.
+
+**Agent OS.** Coding standards discovered from a codebase and loaded when needed, and specs
+shaped by questions run in plan mode. Its full setup is behind an email form and was not
+read. Does well: it uses Claude Code's plan mode for shaping. Does not fit: it is built for
+teams and existing codebases. vibe-kit takes: shaping questions in plan mode.
+
+**Harper Reed, "My LLM codegen workflow atm".** Hone the idea one question at a time into
+`spec.md`, turn it into a step-by-step plan, then a `todo.md` checked off as work goes.
+Does well: one question at a time suits someone who knows what they want but not how to
+specify it. Does not fit: it copies between tools, and the developer sets up the starting
+code and tooling. vibe-kit takes: one question at a time, and a checklist as state.
+
+**Simon Willison, "Designing agentic loops".** An agent is tools in a loop toward a clear
+goal. Run it unattended in a sandbox rather than approving each command, with tightly
+scoped credentials: "If a credential can spend money, set a tight budget limit." Does well:
+it names the sandbox and the budget as the answer to damage and cost. Does not fit: it
+assumes someone who can set up containers. vibe-kit takes: the sandbox, scoped keys with
+spending limits, and a clear goal with a way to test it.

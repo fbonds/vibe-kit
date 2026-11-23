@@ -112,16 +112,11 @@ separate item.
 
 **The session design brief**, `docs/session-design-2026-11-20.md`, written section by
 section at the owner's choice: each section is drafted, approved, then written. As of
-2026-11-21:
-
-- Sections 1 and 2 are approved and written.
-- Section 3, the pitfalls, is drafted in the file under a comment marking it not approved.
-  The owner asked to save state before answering. Present it again for approval first.
-- Proposed with section 3 and not answered: change "for the owner to confirm" in section 2
-  to "confirmed by the owner on 2026-11-21", since the owner approved that section.
-- Open, to raise at section 4: should project-kit appear there as a ninth method, judged
-  like the others, or should its ideas enter only through the pitfalls they address? The
-  owner was asked on 2026-11-21 and did not answer.
+2026-11-23, sections 1 to 4 are approved and written. Next is section 5, a session from the
+reader's side. The owner decided on 2026-11-23 that project-kit appears in section 4 as a
+method judged like the others, and that section 4 is written from the 2026-11-18 pages, with
+a second research pass on how each method handles the pitfalls left open for section 9.
+Section 3 gained a line on auto mode's classifier in three groups, approved the same day.
 - In section 3, "Enforced" names the kind of mechanism. No vibe-kit settings or hooks exist
   yet: the only ones are project-kit's, in `template/.claude/settings.json`.
 
