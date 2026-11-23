@@ -115,6 +115,20 @@ reader does not have to remember an opening phrase. vibe-kit is tied to Claude C
 the platform has a feature, vibe-kit uses it. This repository's own rule stays: never
 push, the owner pushes.
 
+**`template/` is replaced, not edited** (2026-11-23, owner's decision on the session's
+recommendation). Each of its four files was judged against the brief's section 8. None
+passes as it is. `CLAUDE.md` is rewritten: its report shape uses terms the reader does not
+use, it repeats the standards, and it asks for diff approval and owner-only pushes.
+`NEXT.md` is rewritten as a state file in plain words, with the standards moved out, the
+Traps questions dropped, a size limit, and Cline's "what works, what's left, known issues".
+`HOWTOSAVESTATE.md` is dropped: it depends on the reader saying "save state", and its steps
+become work Claude does after each approved step. `.claude/settings.json` is kept as the
+seed: the `git push` deny becomes an ask rule, the staging denies stay, and deny rules for
+destructive commands and secret files are added. `template/` stays as reference until its
+replacements exist, then is deleted. vibe-kit does not keep project-kit's layout. Its own
+files go in `kit/`, since this repository's root `CLAUDE.md` is the working file for
+building vibe-kit.
+
 ## In flight
 
 **The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
@@ -153,7 +167,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Decide what happens to `template/`, judged against the brief.
+1. Write vibe-kit's own files in `kit/`, starting with its `CLAUDE.md`, each judged against
+   the brief's section 8. Then delete `template/`.
 2. The brief's open questions, in its section 9, in the order the owner chooses.
 3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
@@ -175,4 +190,4 @@ This snapshot goes stale with the next commit. The `rev-list` line at the top an
 ## Open, not blocking
 
 - A license. It is item 8 in the brief's section 9, which holds the question.
-- Whether vibe-kit keeps project-kit's layout of a README, `template/` and `docs/`.
+- Whether vibe-kit has a README, and what it says.
