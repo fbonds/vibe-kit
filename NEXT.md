@@ -148,6 +148,15 @@ Saved, backed up online and live come up in the first reply only when something 
 reader's attention (owner's yes on the session's recommendation). The brief's section 5
 and `kit/CLAUDE.md` were changed to match.
 
+**vibe-kit is set up by pasting one sentence into Claude Code, and the README is for the
+reader** (2026-11-24, owner's decisions). A plugin was ruled out: the documentation lists
+no way for one to supply `CLAUDE.md`, permission rules or settings. The sentence, in
+`README.md`, has Claude copy `kit/`'s three files from GitHub, and was tested in two fresh
+folders on 2026-11-24, recorded in `docs/kit-test-2026-11-24.md`. The README leaves out
+the kit's limits. The owner, verbatim: "don't trouble them with "What it cannot do"
+section. It'll work as good as it works. We've done what we can." The limits stay recorded
+in `docs/`.
+
 ## In flight
 
 **`kit/` was tested in a real session** on 2026-11-23 and 2026-11-24. The results are in
@@ -191,10 +200,12 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Find out whether a new user's Claude Code starts on the fullscreen renderer. Focus view,
+1. Test the setup sentence's last addition, the warning about the trust question, in a
+   fresh folder.
+2. Find out whether a new user's Claude Code starts on the fullscreen renderer. Focus view,
    which `kit/` now sets to hide edit diffs, needs it. If not, test `"tui": "fullscreen"`.
-2. The brief's open questions, in its section 9, in the order the owner chooses.
-3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+3. The brief's open questions, in its section 9, in the order the owner chooses.
+4. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.
@@ -213,4 +224,3 @@ This snapshot goes stale with the next commit. The `rev-list` line at the top an
 
 ## Open, not blocking
 
-- Whether vibe-kit has a README, and what it says.

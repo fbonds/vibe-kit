@@ -385,9 +385,9 @@ first files, but each is settled before the part it affects is called done.
 1. **How each method handles the pitfalls.** Section 4 was written from pages read for
    keeping state and checking work. A second, narrower research pass would ask which
    pitfalls each method addresses, and how.
-2. **How vibe-kit arrives in the reader's project.** Section 6 says vibe-kit sets up
-   settings and hooks for the reader, and section 2 says installs are a cost vibe-kit pays.
-   How the files get there without the reader learning how is not decided.
+2. **How vibe-kit arrives in the reader's project.** Decided on 2026-11-24: the reader
+   pastes one sentence from `README.md` into Claude Code, and Claude copies the files. A
+   plugin cannot supply them.
 3. **Which instructed items become enforced.** Section 3 names candidates: a Stop hook that
    runs the checks, a SessionStart hook that loads the state, a hook that scans for keys.
    Each needs a test that shows it working and failing.
