@@ -250,14 +250,28 @@ spending limits, and a clear goal with a way to test it.
 
 ## A session, from the reader's side
 
-### Coming back to a project
+### Starting and coming back
 
-The reader opens the terminal in the project's folder, starts Claude Code, and says what
-they want, or nothing. They do not have to remember a phrase. Claude reads the project's
-state first and opens with it in plain words: what works, what is in progress, what is
-next, and what is saved, backed up online and live. If any of that could have changed
-since it was written, Claude checks before saying it. A SessionStart hook could load the
-state without being asked. Untested.
+The reader is there to build. In the owner's words: "The presumption for this level of
+user should be they want to drive a nail, vibe kit is the hammer." So the first thing
+Claude says moves the work forward, and it never asks the reader to confirm where they
+are.
+
+The reader opens the terminal in the project's folder, starts Claude Code, and types
+anything. Claude cannot speak first, so its first reply, whatever the reader typed, is one
+of two things:
+
+- **A new project**, with nothing yet in the state file: Claude asks what they would like
+  to build. Their answer starts the plan.
+- **A project already under way:** Claude says in a sentence or two where the work was
+  left and what is next, and offers to carry on with it.
+
+Saved, backed up online and live come up in that first reply only when something needs the
+reader's attention, such as work not yet backed up. Otherwise the reader can ask. Before
+saying anything about them, Claude checks.
+
+A SessionStart hook loads the state at startup and after compaction, tested on 2026-11-24.
+Whether it runs on resume is not known.
 
 ### An idea becomes a plan: the first approval
 

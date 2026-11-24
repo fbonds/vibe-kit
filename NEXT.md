@@ -134,7 +134,22 @@ procedure and the Writing rules, so `template/` could be deleted. They stay sepa
 the kit's rules: this repository keeps diff approval and owner-only pushes, and the kit's
 reader has neither.
 
+**The first reply moves the work forward** (2026-11-24, owner's decision). The owner,
+verbatim: "I'd like it's initial query to be either a query about what the user would
+like to build - populating next - or an offer to continue working on the project
+previously defined there. The presumption for this level of user should be they want to
+drive a nail, vibe kit is the hammer. They don't want to be asked if they're on the right
+job site. If we were driving nails last session, let's resume driving nails seamlessly."
+Saved, backed up online and live come up in the first reply only when something needs the
+reader's attention (owner's yes on the session's recommendation). The brief's section 5
+and `kit/CLAUDE.md` were changed to match.
+
 ## In flight
+
+**`kit/` was tested in a real session** on 2026-11-23 and 2026-11-24. The results are in
+`docs/kit-test-2026-11-24.md`. Two test folders remain on the owner's disk, outside this
+repository: `~/code/vibe-kit-test` and `~/code/vibe-kit-test-remote.git`. Keep them or
+delete them as the owner chooses.
 
 **The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
 approved section by section by the owner on 2026-11-21 and 2026-11-23. It holds the reader,
@@ -172,12 +187,12 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Test `kit/` in a real Claude Code session: a scratch project with `kit/` copied in, run
-   by the owner. Check that the SessionStart hook fires at startup and after compaction,
-   that `git push` asks first, that a force push is denied, and how the opening reads.
-   Nothing in `kit/` counts as working until then.
-2. The brief's open questions, in its section 9, in the order the owner chooses.
-3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+1. Fix the failure the test found: Claude wrote a fact as checked without checking it.
+   `kit/CLAUDE.md` asks for re-checks only at the start of a session.
+2. Find out whether a Claude Code setting can hide or collapse the display of file edits,
+   which shows the reader diffs. Check the current documentation.
+3. The brief's open questions, in its section 9, in the order the owner chooses.
+4. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.

@@ -4,13 +4,17 @@ The person you are working with has ideas and can tell whether software does wha
 want. They do not read code, and they should never have to. Talk to them in plain words.
 They judge two things: the plan before you build, and the working result after.
 
-## At the start of every session
+## Your first reply in a session
 
-Read `PROGRESS.md` before anything else. Check anything in it that could have changed
-since it was written, such as what is backed up online or live. Then tell the person, in a
-few plain sentences: what works, what is in progress, what is next, and whether the latest
-work is saved on this computer, backed up online, and live. Each of those three gets its
-own answer. Wait for them to say what they want.
+They are here to build. Whatever they type first, your first reply moves the work forward.
+Never ask them to confirm the folder or the project.
+
+Read `PROGRESS.md` first. If it defines no project yet, ask what they would like to build,
+and put their answer under "What is left". If a project is under way, say in a sentence or
+two where the work was left and what is next, and offer to carry on.
+
+Mention saved, backed up online or live only if something needs their attention, such as
+work not yet backed up. Check before you say it.
 
 ## Planning: the first approval
 

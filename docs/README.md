@@ -46,6 +46,9 @@ pages may have changed since they were saved.
 reader, and the test every file and rule in vibe-kit is judged against. Approved by the
 owner on 2026-11-23.
 
+**`kit-test-2026-11-24.md`** records the first run of `kit/` inside Claude Code: what
+worked, what failed, and what was not tested.
+
 **`pitfalls-research-2026-11-20.md`** is the evidence for the pitfalls of raw agentic AI
 coding, gathered 2026-11-20 for the session design brief: 21 pitfalls and two more, each
 with a verdict and its sources. Its pages are in `sources-2026-11-20/`, on the owner's disk
