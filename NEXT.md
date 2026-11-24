@@ -40,6 +40,10 @@ them here when this file's structure is settled.
   `code.claude.com/docs/en/*.md` link in each saved Anthropic page gave the wrong URL for
   all four, on 2026-11-19. Each page's first heading identified it, and fetching the live
   URL confirmed it.
+- **A test of `kit/` run by the owner carries the owner's global instructions.** To test
+  without them, put `"claudeMdExcludes": ["/Users/fletcher/.claude/CLAUDE.md"]` in the test
+  project's `.claude/settings.local.json`. The setting needs the full path. Verified on
+  2026-11-24 against the session record.
 - **A settled decision was offered again as an option.** On 2026-11-20 the session asked
   whether changes to text should still be shown as a diff, after Decided had recorded "the
   diff available and not required". The owner caught it. Before offering options, read
@@ -189,9 +193,8 @@ owner's approval.
 
 1. Find out whether a new user's Claude Code starts on the fullscreen renderer. Focus view,
    which `kit/` now sets to hide edit diffs, needs it. If not, test `"tui": "fullscreen"`.
-2. A clean test without the owner's global `CLAUDE.md`: try `claudeMdExcludes`.
-3. The brief's open questions, in its section 9, in the order the owner chooses.
-4. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+2. The brief's open questions, in its section 9, in the order the owner chooses.
+3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.
