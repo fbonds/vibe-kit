@@ -213,5 +213,4 @@ This snapshot goes stale with the next commit. The `rev-list` line at the top an
 
 ## Open, not blocking
 
-- A license. It is item 8 in the brief's section 9, which holds the question.
 - Whether vibe-kit has a README, and what it says.

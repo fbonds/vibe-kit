@@ -402,4 +402,4 @@ first files, but each is settled before the part it affects is called done.
    starts in. The sandbox covers macOS, Linux and WSL2.
 7. **Going live.** Section 5 asks for the reader's yes before anything goes live. How
    Claude takes any kind of project live, and what it checks first, is not described.
-8. **A license.** vibe-kit has none yet. project-kit uses MIT-0.
+8. **A license.** Decided on 2026-11-24: MIT-0, in `LICENSE`, the same as project-kit.
