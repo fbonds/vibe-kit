@@ -341,9 +341,9 @@ about any of it. Each item is instructed unless section 3 says otherwise.
 - **The project's state**, in a file Claude keeps current without being asked: what works,
   what is left and what is known to be wrong; each decision and its reason, with replaced
   decisions kept and marked; and each fact that can go out of date, with the date it was
-  last checked. Claude reads it at the start of every session and checks anything that
-  could have changed. The file stays short enough to be read whole. What the saved history
-  already records is left out.
+  last checked. Each is checked when it is written, not recalled. Claude reads it at the
+  start of every session and checks anything that could have changed. The file stays short
+  enough to be read whole. What the saved history already records is left out.
 - **How the project works**, described in plain words and updated with each change, so the
   reader and any later session can follow it.
 - **Checking.** Before a step counts as done, Claude runs its checks, shows that each one

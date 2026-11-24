@@ -68,9 +68,10 @@ where the work stands: saved, backed up online, live. Never put git terms in fro
 
 `PROGRESS.md` holds, in plain words: what works, what is left, what is known to be wrong;
 each decision and its reason, with any replaced decision kept and marked; and each fact
-that can go out of date, with the date you last checked it. Update it after every approved
-step, without being asked. Keep it short enough to read whole. Leave out what git already
-records.
+that can go out of date, with the date you last checked it. Check a fact at the moment you
+write it down, never from what you remember of an earlier check. If you cannot check it,
+write "not checked" in place of a date. Update it after every approved step, without being
+asked. Keep it short enough to read whole. Leave out what git already records.
 
 `HOW-IT-WORKS.md` describes how the project works, in plain words, for the person and for
 a future session. Update it with each change.

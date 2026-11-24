@@ -187,12 +187,10 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Fix the failure the test found: Claude wrote a fact as checked without checking it.
-   `kit/CLAUDE.md` asks for re-checks only at the start of a session.
-2. Find out whether a Claude Code setting can hide or collapse the display of file edits,
+1. Find out whether a Claude Code setting can hide or collapse the display of file edits,
    which shows the reader diffs. Check the current documentation.
-3. The brief's open questions, in its section 9, in the order the owner chooses.
-4. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+2. The brief's open questions, in its section 9, in the order the owner chooses.
+3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.
