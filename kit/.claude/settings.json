@@ -31,5 +31,6 @@
       }
     ]
   },
-  "viewMode": "focus"
+  "viewMode": "focus",
+  "tui": "fullscreen"
 }

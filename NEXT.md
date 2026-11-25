@@ -161,6 +161,13 @@ the kit's limits. The owner, verbatim: "don't trouble them with "What it cannot 
 section. It'll work as good as it works. We've done what we can." The limits stay recorded
 in `docs/`.
 
+**The kit sets the fullscreen renderer** (2026-11-25, owner's decision on the session's
+recommendation). On the default renderer, focus view did not hide edits: the reader saw
+full diffs. Setting it overrides a reader's own renderer choice inside their vibe-kit
+project. A project file accepts the setting, tested; that it overrides a user on the
+default renderer is not tested and rests on the documented order. Recorded in
+`docs/kit-test-2026-11-24.md`.
+
 ## In flight
 
 **`kit/` was tested in a real session** on 2026-11-23 and 2026-11-24. The results are in
@@ -169,18 +176,6 @@ repository, listed with `ls -d` on 2026-11-24: `~/code/vibe-kit-test`, its stand
 `~/code/vibe-kit-test-remote.git`, and `~/code/vibe-kit-test2`, `-test3` and `-test4`. Each
 of the last three has a `.claude/settings.local.json` that excludes the owner's global
 `CLAUDE.md`. Keep them or delete them as the owner chooses.
-
-**The renderer test is half done.** On 2026-11-24 the owner's `~/.claude/settings.json` was
-found to set `"tui": "fullscreen"`, so the focus-view test ran on the owner's own choice.
-To see what a reader on the classic renderer gets, `"tui": "classic"` was added to
-`~/code/vibe-kit-test4/.claude/settings.local.json`, which overrides the owner's choice in
-that folder only. Not yet run. The owner's steps: `/exit` any test4 session; run
-`cd ~/code/vibe-kit-test4 && claude`; trust the folder if asked; type `/tui` and note the
-renderer; then type `Add one line under "What is left" in the progress notes: "Try a small
-first project."` and report whether the edit shows as one summary line or as the full
-changed lines. If it shows full lines, the likely fix is `"tui": "fullscreen"` in
-`kit/.claude/settings.json`, which would override a reader's own renderer choice in their
-project: that needs the owner's decision.
 
 **The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
 approved section by section by the owner on 2026-11-21 and 2026-11-23. It holds the reader,
@@ -218,10 +213,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Finish the renderer test under In flight. The default renderer for a new user is not
-   known; the documentation summary did not say.
-2. The brief's open questions, in its section 9, in the order the owner chooses.
-3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
+1. The brief's open questions, in its section 9, in the order the owner chooses.
+2. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
    three commits are pushed: on 2026-11-20 at 00:45 UTC its `origin/main` was `83b8a27`,
    0 behind and 0 ahead after a fetch.

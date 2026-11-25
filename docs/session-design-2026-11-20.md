@@ -399,7 +399,8 @@ first files, but each is settled before the part it affects is called done.
    against plain Claude Code at least. Section 3's last stretch adds that how fast the work
    felt is no evidence.
 6. **Default settings.** Whether vibe-kit turns the sandbox on, and which permission mode it
-   starts in. The sandbox covers macOS, Linux and WSL2.
+   starts in. The sandbox covers macOS, Linux and WSL2. The renderer is decided:
+   fullscreen, 2026-11-25. The sandbox and the permission mode are still open.
 7. **Going live.** Section 5 asks for the reader's yes before anything goes live. How
    Claude takes any kind of project live, and what it checks first, is not described.
 8. **A license.** Decided on 2026-11-24: MIT-0, in `LICENSE`, the same as project-kit.
