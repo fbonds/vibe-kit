@@ -12,7 +12,7 @@
 > git status -sb
 > ```
 
-Updated 2026-11-23 03:51 UTC. Working state for vibe-kit, a fork of project-kit
+Updated 2026-11-24 23:55 UTC. Working state for vibe-kit, a fork of project-kit
 (github.com/fbonds/project-kit) aimed at being the best practice for solo vibe coding with
 Claude Code. **Read `docs/handoff-2026-11-19.md` next.** It holds everything from the
 session that started this repository: the owner's goal and its definition in their words,
@@ -44,6 +44,10 @@ them here when this file's structure is settled.
   without them, put `"claudeMdExcludes": ["/Users/fletcher/.claude/CLAUDE.md"]` in the test
   project's `.claude/settings.local.json`. The setting needs the full path. Verified on
   2026-11-24 against the session record.
+- **A test sentence can land in the wrong session.** On 2026-11-24 the setup sentence was
+  pasted into an open session in `~/code/vibe-kit-test` instead of the new folder, and
+  Claude worked there. Before pasting a test step, check the folder in the session's
+  header.
 - **A settled decision was offered again as an option.** On 2026-11-20 the session asked
   whether changes to text should still be shown as a diff, after Decided had recorded "the
   diff available and not required". The owner caught it. Before offering options, read
@@ -160,9 +164,23 @@ in `docs/`.
 ## In flight
 
 **`kit/` was tested in a real session** on 2026-11-23 and 2026-11-24. The results are in
-`docs/kit-test-2026-11-24.md`. Two test folders remain on the owner's disk, outside this
-repository: `~/code/vibe-kit-test` and `~/code/vibe-kit-test-remote.git`. Keep them or
-delete them as the owner chooses.
+`docs/kit-test-2026-11-24.md`. Five test folders remain on the owner's disk, outside this
+repository, listed with `ls -d` on 2026-11-24: `~/code/vibe-kit-test`, its stand-in backup
+`~/code/vibe-kit-test-remote.git`, and `~/code/vibe-kit-test2`, `-test3` and `-test4`. Each
+of the last three has a `.claude/settings.local.json` that excludes the owner's global
+`CLAUDE.md`. Keep them or delete them as the owner chooses.
+
+**The renderer test is half done.** On 2026-11-24 the owner's `~/.claude/settings.json` was
+found to set `"tui": "fullscreen"`, so the focus-view test ran on the owner's own choice.
+To see what a reader on the classic renderer gets, `"tui": "classic"` was added to
+`~/code/vibe-kit-test4/.claude/settings.local.json`, which overrides the owner's choice in
+that folder only. Not yet run. The owner's steps: `/exit` any test4 session; run
+`cd ~/code/vibe-kit-test4 && claude`; trust the folder if asked; type `/tui` and note the
+renderer; then type `Add one line under "What is left" in the progress notes: "Try a small
+first project."` and report whether the edit shows as one summary line or as the full
+changed lines. If it shows full lines, the likely fix is `"tui": "fullscreen"` in
+`kit/.claude/settings.json`, which would override a reader's own renderer choice in their
+project: that needs the owner's decision.
 
 **The session design brief is complete and approved,** `docs/session-design-2026-11-20.md`,
 approved section by section by the owner on 2026-11-21 and 2026-11-23. It holds the reader,
@@ -200,8 +218,8 @@ has only a `.txt`. On 2026-11-19 `git status --ignored` listed those 47 files an
 These are the next steps, in order. Raise them one at a time. Do not begin any without the
 owner's approval.
 
-1. Find out whether a new user's Claude Code starts on the fullscreen renderer. Focus view,
-   which `kit/` now sets to hide edit diffs, needs it. If not, test `"tui": "fullscreen"`.
+1. Finish the renderer test under In flight. The default renderer for a new user is not
+   known; the documentation summary did not say.
 2. The brief's open questions, in its section 9, in the order the owner chooses.
 3. In project-kit, with the owner's approval and from a session there: delete the vibe-kit
    entry under In flight in its `NEXT.md`, which says to do so once this file exists. Its
@@ -210,12 +228,12 @@ owner's approval.
 
 ## Committed, pushed, released: three separate questions
 
-As of 2026-11-20 23:59 UTC. Re-check with the block at the top of this file.
+As of 2026-11-24 23:55 UTC. Re-check with the block at the top of this file.
 
-**Uncommitted.** Nothing, apart from this update and `docs/session-design-2026-11-20.md`.
+**Uncommitted.** Nothing, apart from this update.
 
-**Unpushed.** Nothing. GitHub `main` was `643e9f1`, 0 behind and 0 ahead, on 2026-11-23 at
-03:51 UTC.
+**Unpushed.** `a10c255`, one commit ahead of GitHub `main` at `a1c20f7`, at 23:55 UTC, plus
+the commit that holds this update, once made.
 This snapshot goes stale with the next commit. The `rev-list` line at the top answers it.
 
 **Unreleased.** Nothing released.
